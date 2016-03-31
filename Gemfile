@@ -18,6 +18,9 @@ gem 'devise'
 
 gem 'active_model_serializers'
 
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
