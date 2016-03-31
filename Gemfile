@@ -16,6 +16,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
 
+gem 'active_model_serializers'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
