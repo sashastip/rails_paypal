@@ -21,6 +21,8 @@ gem 'active_model_serializers'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 
+gem 'activemerchant'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
