@@ -3,11 +3,6 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
-    if params[:search]
-      @posts = Book.search(params[:search]).order("created_at DESC")
-    else
-      @posts = Book.all.order('created_at DESC')
-    end
   end
 
   def show
