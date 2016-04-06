@@ -6,6 +6,6 @@
     <td><%= book.description %></td>
     <td><%= book.price %></td>
     <td><%= link_to 'Add to Cart', book, class: "btn btn-primary" %></td>
-    <td><%= link_to(image_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"), express_checkout_path) %><td>
+    <td><%= link_to(image_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"), express_checkout_orders_path) %><td>
   </tr>
 <% end %>
