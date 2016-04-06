@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :orders do
     collection do
-      post 'express_checkout'
+      get 'express_checkout'
     end
   end
 
