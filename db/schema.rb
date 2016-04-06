@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160406115834) do
+ActiveRecord::Schema.define(version: 20160406125950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,14 +24,21 @@ ActiveRecord::Schema.define(version: 20160406115834) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "carts", force: :cascade do |t|
+    t.decimal  "total_amount_cents"
+    t.datetime "purchased_at"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.string   "ip"
     t.string   "express_token"
-    t.string   "express_payer_id"
-    t.string   "violation_id"
+    t.integer  "express_payer_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "cart_id"
   end
+
+  add_index "orders", ["cart_id"], name: "index_orders_on_cart_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -69,4 +76,5 @@ ActiveRecord::Schema.define(version: 20160406115834) do
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
+  add_foreign_key "orders", "carts"
 end

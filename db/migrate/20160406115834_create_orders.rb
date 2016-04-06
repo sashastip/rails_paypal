@@ -3,8 +3,7 @@ class CreateOrders < ActiveRecord::Migration
     create_table :orders do |t|
       t.string :ip
       t.string :express_token
-      t.string :express_payer_id
-      t.string :violation_id
+      t.integer :express_payer_id
       t.timestamps null: false
     end
   end
