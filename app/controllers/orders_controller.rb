@@ -1,23 +1,25 @@
 class OrdersController < ApplicationController
   def express_checkout
-    @violation = Violation.find([params[:violation_id]])
-    @amount = @violation.amount.to_i
-    response = EXPRESS_GETEWAY.setup_purchase(@amount,
-                                              ip: request.remote_ip,
-                                              return_url: violations_url,
-                                              currency: "USD",
-                                              allow_quest_checkout: true,
-                                              items: [{notice_no: "Donate",
-                                                        desctription: "Paying to"
-                                                        @violation.notice_no,
-                                                        quantity: "1",
-                                                        amount: @amoutn}]
-                                              )
+    response = EXPRESS_GETEWAY.setup_purchase()
     redirect_to EXPRESS_GETEWAY.redirect_url_for(response.token)
   end
 
   def new
     @order = Order.new(:express_token => params[:token])
-    @violation = Violation.find(params[:violation_id])
+  end
+
+  def create
+    @order = @cart.build_order(order_params)
+    @order.ip = request.remote_ip
+
+    if @order.save
+      if @order.purchase 
+        redirect_to order_url(@order)
+      else
+        render action:  "failure"
+      end
+    else
+      render action: "new"
+    end
   end
 end
