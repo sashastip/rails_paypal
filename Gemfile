@@ -18,6 +18,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_admin'
 gem 'devise'
 gem 'cancancan'
+gem 'rolify'
 
 gem 'active_model_serializers'
 
