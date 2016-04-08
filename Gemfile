@@ -20,8 +20,6 @@ gem 'devise'
 gem 'cancancan'
 gem 'rolify'
 
-gem 'active_model_serializers'
-
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 
