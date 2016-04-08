@@ -114,6 +114,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
+    jruby-jars (9.0.5.0)
     json (1.8.3)
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
@@ -207,6 +208,7 @@ GEM
       rspec-mocks (~> 3.4.0)
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
+    rubydoop (1.2.1)
     safe_yaml (1.0.4)
     sass (3.4.22)
     sass-rails (5.0.4)
@@ -263,12 +265,14 @@ DEPENDENCIES
   faker
   jbuilder (~> 2.0)
   jquery-rails
+  jruby-jars
   pg
   pry
   rails (= 4.2.6)
   rails_admin
   rolify
   rspec-rails
+  rubydoop
   sass-rails
   sdoc (~> 0.4.0)
   shoulda-matchers (~> 3.1)

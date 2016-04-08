@@ -6,9 +6,7 @@ gem 'pg'
 
 gem 'bootstrap-sass'
 gem 'sass-rails'
-
 gem 'uglifier', '>= 1.3.0'
-
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
@@ -19,6 +17,9 @@ gem 'rails_admin'
 gem 'devise'
 gem 'cancancan'
 gem 'rolify'
+
+gem 'rubydoop'
+gem 'jruby-jars'
 
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
