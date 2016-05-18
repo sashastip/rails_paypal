@@ -18,9 +18,6 @@ gem 'devise'
 gem 'cancancan'
 gem 'rolify'
 
-gem 'rubydoop'
-gem 'jruby-jars'
-
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 

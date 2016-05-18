@@ -1,28 +1,19 @@
 class Order < ActiveRecord::Base
-  belongs_to :cart
+  #belongs_to :cart
 
-  def purchase
-    response = EXPRESS_GATEWAY.purchase(order.total_amount_cents, express_purchase_options)
-    cart.update_attribute(:purchased_at, Time.now) if response.success?
-    response.success?
-  end
-
-  def express_token=(token)
-    self[:express_token] = token
-    if new_record? && !token.blank?
-      # you can dump details var if you need more info from buyer
-      details = EXPRESS_GATWAY.details_for(token)
-      self.express_payer_id = details.payer_id
-    end
-  end
-
-  private
-
-  def express_purchase_options
-    {
-      :ip => ip,
-      :token => express_token,
-      :payer_id => express_payer_id
+  def paypal_url(return_url, cancel_return_url)
+    values = {
+      cmd: "_xclick",
+      charset: 'utf-8',
+      business: "trololo@ya.ru",
+      upload: 1,
+      return: return_url,
+      cancel_return: cancel_return_url,
+      item_number: 1,
+      item_name: "name", 
+      currency_code: 'USD',
+      amount: 50
     }
+    "https://www.sandbox.paypal.com/cgi-bin/webscr?#{values.to_query}"
   end
 end
